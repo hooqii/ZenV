@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivZenV" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -44,8 +44,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/tvWelcome"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
     <Button
         android:id="@+id/btnLoginGoogle"
@@ -64,23 +64,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvIntro" />
 
     <Button
-        android:id="@+id/btnLoginFacebook"
+        android:id="@+id/btnLoginEmail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:background="@drawable/glass"
         android:layout_marginHorizontal="35dp"
         android:layout_marginTop="8dp"
-        android:paddingHorizontal="25dp"
-        android:drawableStart="@drawable/icon_facebook"
+        android:background="@drawable/glass"
+        android:drawableStart="@drawable/icon_gmail"
         android:fontFamily="@font/poppins_regular"
+        android:paddingHorizontal="30dp"
+        android:paddingEnd="50dp"
+        android:text="Masuk dengan Email"
+        android:textAllCaps="false"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Masuk dengan Facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Belum memiliki akun?"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginEmail"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="112dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Register"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
