@@ -24,6 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
+<<<<<<< HEAD
+=======
+        android:textSize="35sp"
+        android:textColor="@color/black"
+>>>>>>> 72d98e79988a409ec8c7dd1048a5f116e802fee8
         android:text="Register"
         android:textColor="@color/dark_blue"
         android:textSize="30sp"
