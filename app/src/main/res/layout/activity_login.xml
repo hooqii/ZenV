@@ -7,6 +7,18 @@
     android:background="@drawable/bg"
     tools:context=".RegisterActivity">
 
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="25.97dp"
+        android:layout_height="25.97dp"
+        android:background="@drawable/backarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="97dp"
@@ -32,12 +44,12 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="425dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,10 +83,12 @@
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
+                android:paddingStart="30dp"
                 android:background="@drawable/bget"
                 android:fontFamily="@font/poppins_regular"
-                android:hint="    Masukan alamat email"
-                android:textColor="@color/gray"
+                android:hint="Masukan alamat email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
@@ -100,10 +114,12 @@
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
+                android:paddingStart="30dp"
                 android:background="@drawable/bget"
                 android:fontFamily="@font/poppins_regular"
-                android:hint="    Password milikmu"
-                android:textColor="@color/gray"
+                android:hint="Password milikmu"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
@@ -114,7 +130,7 @@
                 android:layout_width="115dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/btn_theme"
+                android:background="@drawable/clicked_btn_theme"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Login"
                 android:textColor="@color/white"
@@ -136,11 +152,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
             <TextView
-                android:id="@+id/tvLogin"
+                android:id="@+id/linkRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="70dp"
+                android:layout_marginStart="30dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Register"
                 android:textColor="@color/black"
