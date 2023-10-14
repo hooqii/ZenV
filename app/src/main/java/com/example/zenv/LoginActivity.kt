@@ -15,6 +15,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.zenv.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,7 +23,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
 
     // variabel menentukan animasi button
-    private var isButtonClicked = false
+    private var isButtonLinkClicked = false
 
     // Variabel menentukan animasi show and hide password
     private var isPasswordVisible = false
@@ -117,10 +118,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.linkRegister -> {
-                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-                startActivity(intent)
-            }
             R.id.btnBack -> {
                 val intent = Intent(this@LoginActivity, WellcomeActivity::class.java)
                 startActivity(intent)
@@ -129,9 +126,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this@LoginActivity, InterestActivity::class.java)
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnLogin)
-                if(!isButtonClicked) {
+                if(!isButtonLinkClicked) {
                     myButton.setBackgroundResource(R.drawable.btn_theme_3)
-                    isButtonClicked = true
+                    isButtonLinkClicked = true
+                }
+                startActivity(intent)
+            }
+            R.id.linkRegister -> {
+                // Intent
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                var myLinkText = findViewById<TextView>(R.id.linkRegister)
+                // logika animasi button di click
+                if(!isButtonLinkClicked) {
+                    myLinkText.setTextColor(ContextCompat.getColor(this, R.color.purple))
+                    isButtonLinkClicked = true
                 }
                 startActivity(intent)
             }
@@ -140,14 +148,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        // btnRegister
-        val btnLogin = findViewById<TextView>(R.id.btnLogin)
+        // btnLogin
+        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val linkRegister = findViewById<TextView>(R.id.linkRegister)
 
         // atur xml
-        // linkRegister
+        // btnLogin
         btnLogin.setBackgroundResource(R.drawable.btn_theme_2)
+        // linkRegister
+        linkRegister.setTextColor(ContextCompat.getColor(this, R.color.black))
 
         // atur variable animasi
-        isButtonClicked = false
+        isButtonLinkClicked = false
     }
 }

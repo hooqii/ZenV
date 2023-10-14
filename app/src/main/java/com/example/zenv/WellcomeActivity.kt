@@ -17,7 +17,7 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityWellcomeBinding
 
     // variabel menentukan animasi button
-    private var isButtonClicked = false
+    private var isButtonLinkClicked = false
 
     // kode permintaan unik
     private val REQUEST_LOGIN = 123
@@ -51,9 +51,9 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnLoginGoogle)
                 // logika animasi button di click
-                if(!isButtonClicked) {
+                if(!isButtonLinkClicked) {
                     myButton.setBackgroundResource(R.drawable.glass_clicked)
-                    isButtonClicked = true
+                    isButtonLinkClicked = true
                 }
                 val googleLoginUrl = "https://accounts.google.com"
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(googleLoginUrl))
@@ -68,9 +68,9 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnLoginFacebook)
                 // logika animasi button di click
-                if(!isButtonClicked) {
+                if(!isButtonLinkClicked) {
                     myButton.setBackgroundResource(R.drawable.glass_clicked)
-                    isButtonClicked = true
+                    isButtonLinkClicked = true
                 }
                 val facebookLoginUrl = "https://www.facebook.com" // Gantilah dengan URL login Facebook yang sesuai
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookLoginUrl))
@@ -87,9 +87,9 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
                 // variabel pemanggilan button
                 var myLinkText = findViewById<TextView>(R.id.linkRegister)
                 // logika animasi button di click
-                if(!isButtonClicked) {
+                if(!isButtonLinkClicked) {
                     myLinkText.setTextColor(ContextCompat.getColor(this, R.color.purple))
-                    isButtonClicked = true
+                    isButtonLinkClicked = true
                 }
                 startActivity(intent)
             }
@@ -129,6 +129,6 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
         myLink.setTextColor(ContextCompat.getColor(this, R.color.black))
 
         // atur variable animasi
-        isButtonClicked = false
+        isButtonLinkClicked = false
     }
 }

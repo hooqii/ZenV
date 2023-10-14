@@ -24,7 +24,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityRegisterBinding
 
     // variabel menentukan animasi button
-    private var isButtonClicked = false
+    private var isButtonLinkClicked = false
 
     // Variabel menentukan animasi show and hide password
     private var isPasswordVisible = false
@@ -136,21 +136,20 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        // Login dan register to login
-        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-        // back to Wellcome
-        val intent2 = Intent(this@RegisterActivity, WellcomeActivity::class.java)
-
         when(v.id){
-            R.id.linkLogin -> {
-                startActivity(intent)
+            R.id.btnBack -> {
+                // intent
+                val intent2 = Intent(this@RegisterActivity, WellcomeActivity::class.java)
+                startActivity(intent2)
             }
             R.id.btnRegister -> {
+                //intent
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnRegister)
-                if(!isButtonClicked) {
+                if(!isButtonLinkClicked) {
                     myButton.setBackgroundResource(R.drawable.btn_theme_3)
-                    isButtonClicked = true
+                    isButtonLinkClicked = true
                 }
                 // alert konfirmasi
                 val dialogBuilder = AlertDialog.Builder(this)
@@ -166,8 +165,17 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 val alertDialog = dialogBuilder.create()
                 alertDialog.show()
             }
-            R.id.btnBack -> {
-                startActivity(intent2)
+            R.id.linkLogin -> {
+                // intent
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                // variabel pemanggilan button
+                var myLinkText = findViewById<TextView>(R.id.linkLogin)
+                // logika animasi button di click
+                if(!isButtonLinkClicked) {
+                    myLinkText.setTextColor(ContextCompat.getColor(this, R.color.purple))
+                    isButtonLinkClicked = true
+                }
+                startActivity(intent)
             }
         }
     }
@@ -175,14 +183,19 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     // aksi untuk button perangkat kembali di tekan
     override fun onResume() {
         super.onResume()
-        // btnRegister
-        val btnRegis = findViewById<TextView>(R.id.btnRegister)
+        //variabel call xml
+        // Register
+        val btnRegis = findViewById<Button>(R.id.btnRegister)
+        // linkLogin
+        val linkLogin = findViewById<TextView>(R.id.linkLogin)
 
         // atur xml
-        // linkRegister
+        // Register
         btnRegis.setBackgroundResource(R.drawable.btn_theme_2)
+        // linkLogin
+        linkLogin.setTextColor(ContextCompat.getColor(this, R.color.black))
 
         // atur variable animasi
-        isButtonClicked = false
+        isButtonLinkClicked = false
     }
 }
