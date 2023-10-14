@@ -47,6 +47,7 @@
         app:layout_constraintVertical_bias="0.191" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="525dp"
         android:layout_marginTop="10dp"
@@ -84,7 +85,7 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
                 android:paddingStart="30dp"
-                android:background="@drawable/bget"
+                android:background="@drawable/edit_text_background_selector"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Masukan alamat email"
                 android:inputType="textEmailAddress"
@@ -115,14 +116,29 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
                 android:paddingStart="30dp"
-                android:background="@drawable/bget"
+                android:background="@drawable/edit_text_background_selector"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Buat password"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
+                android:paddingEnd="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+            <ImageView
+                android:id="@+id/ivShowPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icon_eye_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.409" />
 
             <TextView
                 android:id="@+id/tvConfirmPassword"
@@ -146,21 +162,36 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
                 android:paddingStart="30dp"
-                android:background="@drawable/bget"
+                android:background="@drawable/edit_text_background_selector"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Konfirmasi password"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
+                android:paddingEnd="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvConfirmPassword" />
+
+            <ImageView
+                android:id="@+id/ivShowConfirmPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icon_eye_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.648" />
 
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="115dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/clicked_btn_theme"
+                android:background="@drawable/btn_theme_2"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Register"
                 android:textAllCaps="false"
@@ -198,5 +229,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>

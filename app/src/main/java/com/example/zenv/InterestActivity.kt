@@ -43,7 +43,7 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
     private fun toggleButtonBackground(button: Button) {
         if (button.isSelected) {
             // Ganti warna saat pertama kali diklik
-            button.setBackgroundResource(R.drawable.clicked_btn_theme)
+            button.setBackgroundResource(R.drawable.btn_theme_2)
             button.setTextColor(ContextCompat.getColor(this, R.color.white))
         } else {
             // Ganti warna saat diklik lagi

@@ -199,7 +199,7 @@
     <Button
         android:layout_width="115.16dp"
         android:layout_height="34dp"
-        android:background="@drawable/clicked_btn_theme"
+        android:background="@drawable/btn_theme_2"
         android:fontFamily="@font/poppins_regular"
         android:text="Simpan"
         android:textColor="@color/white"

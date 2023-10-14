@@ -47,6 +47,7 @@
         app:layout_constraintVertical_bias="0.191" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="425dp"
         android:layout_marginTop="10dp"
@@ -84,7 +85,7 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
                 android:paddingStart="30dp"
-                android:background="@drawable/bget"
+                android:background="@drawable/edit_text_background_selector"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Masukan alamat email"
                 android:inputType="textEmailAddress"
@@ -115,7 +116,7 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="8dp"
                 android:paddingStart="30dp"
-                android:background="@drawable/bget"
+                android:background="@drawable/edit_text_background_selector"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Password milikmu"
                 android:textColor="@color/black"
@@ -124,13 +125,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
 
+            <ImageView
+                android:id="@+id/ivShowPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icon_eye_off"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.493" />
+
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="115dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/clicked_btn_theme"
+                android:background="@drawable/btn_theme_2"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Login"
                 android:textColor="@color/white"

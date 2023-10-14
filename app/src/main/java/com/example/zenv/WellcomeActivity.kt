@@ -1,14 +1,16 @@
 package com.example.zenv
 
+import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.zenv.databinding.ActivityWellcomeBinding
-
 class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
 
     // declaration Binding
@@ -16,6 +18,9 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
 
     // variabel menentukan animasi button
     private var isButtonClicked = false
+
+    // kode permintaan unik
+    private val REQUEST_LOGIN = 123
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,35 +46,44 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        // variabel perpindaha halaman
-
-        // facebook dan google
-        val intent = Intent(this@WellcomeActivity, InterestActivity::class.java)
-        // Register
-        val intent2 = Intent(this@WellcomeActivity, RegisterActivity::class.java)
-
         when(v.id){
             R.id.btnLoginGoogle -> {
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnLoginGoogle)
                 // logika animasi button di click
                 if(!isButtonClicked) {
-                    myButton.setBackgroundResource(R.drawable.clicked_glass)
+                    myButton.setBackgroundResource(R.drawable.glass_clicked)
                     isButtonClicked = true
                 }
-                startActivity(intent)
+                val googleLoginUrl = "https://accounts.google.com"
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(googleLoginUrl))
+                try {
+                    startActivityForResult(browserIntent, REQUEST_LOGIN)
+                } catch (e: ActivityNotFoundException) {
+                    // Handle the case where no browser app is available
+                    // You can show a message to the user to install a browser
+                }
             }
             R.id.btnLoginFacebook -> {
                 // variabel pemanggilan button
                 var myButton = findViewById<Button>(R.id.btnLoginFacebook)
                 // logika animasi button di click
                 if(!isButtonClicked) {
-                    myButton.setBackgroundResource(R.drawable.clicked_glass)
+                    myButton.setBackgroundResource(R.drawable.glass_clicked)
                     isButtonClicked = true
                 }
-                startActivity(intent)
+                val facebookLoginUrl = "https://www.facebook.com" // Gantilah dengan URL login Facebook yang sesuai
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookLoginUrl))
+                try {
+                    startActivityForResult(browserIntent, REQUEST_LOGIN)
+                } catch (e: ActivityNotFoundException) {
+                    // Handle the case where no browser app is available
+                    // Anda dapat menampilkan pesan kepada pengguna untuk menginstal peramban
+                }
             }
             R.id.linkRegister -> {
+                // Intent
+                val intent = Intent(this@WellcomeActivity, RegisterActivity::class.java)
                 // variabel pemanggilan button
                 var myLinkText = findViewById<TextView>(R.id.linkRegister)
                 // logika animasi button di click
@@ -77,8 +91,20 @@ class WellcomeActivity : AppCompatActivity(), View.OnClickListener {
                     myLinkText.setTextColor(ContextCompat.getColor(this, R.color.purple))
                     isButtonClicked = true
                 }
-                startActivity(intent2)
+                startActivity(intent)
             }
+        }
+    }
+
+    // aksi untuk btnLoginGoogle pergi ke chrome
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_LOGIN && resultCode == Activity.RESULT_OK) {
+            // Pengguna telah berhasil masuk melalui browser atau aplikasi lain
+            // Sekarang arahkan mereka ke InterestActivity
+            val intent = Intent(this@WellcomeActivity, InterestActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,15 +1,35 @@
 package com.example.zenv
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.method.PasswordTransformationMethod
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.zenv.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     // declaration binding
     private lateinit var binding: ActivityLoginBinding
+
+    // variabel menentukan animasi button
+    private var isButtonClicked = false
+
+    // Variabel menentukan animasi show and hide password
+    private var isPasswordVisible = false
+
+    // Variabel menentukan efek glass frame
+    private lateinit var frameLayout: FrameLayout
+    private var isFrameLayoutClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +52,67 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         // Button Login
         val btLogin: TextView = findViewById(R.id.btnLogin)
         btLogin.setOnClickListener(this)
+
+        // Mendeteksi sentuhan di luar keyboard saat user click edit text
+        val rootView: View = findViewById(android.R.id.content)
+        rootView.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                // Cek apakah keyboard sedang terbuka
+                val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                val view = currentFocus
+                if (view != null && imm.isActive) {
+                    imm.hideSoftInputFromWindow(view.windowToken, 0)
+                    view.clearFocus() // Untuk menghilangkan fokus dari EditText yang di-klik
+                }
+            }
+            return@setOnTouchListener false
+        }
+
+        // deklarasi variable ke id xml
+        val etPassword: EditText = findViewById(R.id.etPassword)
+        val ivShowPassword: ImageView = findViewById(R.id.ivShowPassword)
+
+        // logika click menekan icon show and hide password
+        ivShowPassword.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            val transformationMethod = if (isPasswordVisible) {
+                null
+            } else {
+                PasswordTransformationMethod.getInstance()
+            }
+            etPassword.transformationMethod = transformationMethod
+
+            if (isPasswordVisible) {
+                ivShowPassword.setImageResource(R.drawable.icon_eye_on)
+            } else {
+                ivShowPassword.setImageResource(R.drawable.icon_eye_off)
+            }
+        }
+
+        // inisialisasi frameLayout
+        frameLayout = findViewById(R.id.frameLayout)
+
+        // Logic clicked frameLayout
+        frameLayout.setOnClickListener {
+            if (!isFrameLayoutClicked) {
+                // Cek apakah keyboard sedang terbuka
+                val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                val view = currentFocus
+                if (view != null && imm.isActive) {
+                    imm.hideSoftInputFromWindow(view.windowToken, 0)
+                    view.clearFocus()
+                }
+
+                frameLayout.setBackgroundResource(R.drawable.card_clicked)
+                isFrameLayoutClicked = true
+
+                // Setel tunda 0.5 detik untuk kembali ke keadaan normal
+                Handler(Looper.getMainLooper()).postDelayed({
+                    frameLayout.setBackgroundResource(R.drawable.card)
+                    isFrameLayoutClicked = false
+                }, 300)
+            }
+        }
     }
 
     override fun onClick(v: View) {
@@ -46,8 +127,27 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnLogin -> {
                 val intent = Intent(this@LoginActivity, InterestActivity::class.java)
+                // variabel pemanggilan button
+                var myButton = findViewById<Button>(R.id.btnLogin)
+                if(!isButtonClicked) {
+                    myButton.setBackgroundResource(R.drawable.btn_theme_3)
+                    isButtonClicked = true
+                }
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // btnRegister
+        val btnLogin = findViewById<TextView>(R.id.btnLogin)
+
+        // atur xml
+        // linkRegister
+        btnLogin.setBackgroundResource(R.drawable.btn_theme_2)
+
+        // atur variable animasi
+        isButtonClicked = false
     }
 }
