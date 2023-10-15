@@ -4,15 +4,281 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:src="@drawable/profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvHiMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Hi, Ahmad..."
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="95dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.937"
+                app:layout_constraintStart_toEndOf="@+id/tvHiMessage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/glass"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                app:queryBackground="@color/white_transparent"
+                app:queryHint="Yuk cari kegiatanmu di sini" />
+
+            <FrameLayout
+                android:id="@+id/flWebinar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="45dp"
+                app:layout_constraintEnd_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/searchView">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/webinar_logo" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchView">
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/kursus_logo" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toEndOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/searchView">
+
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/bootcamp_logo"
+                    app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="62dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Webinar"
+                android:textColor="@color/dark_blue"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/flWebinar" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Kursus"
+                android:textColor="@color/dark_blue"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Bootcamp"
+                android:textColor="@color/dark_blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/flWebinar" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/glass"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:layout_editor_absoluteX="0dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="60dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Popular"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="60dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Newest"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/card1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/card_item" />
+                </ScrollView>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bottom_nav_theme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="23dp"
+                android:src="@drawable/icon_home" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="23dp"
+                android:src="@drawable/icon_chat" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="23dp"
+                android:src="@drawable/icon_add" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="23dp"
+                android:src="@drawable/icon_notification" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="23dp"
+                android:src="@drawable/icon_setting" />
+        </LinearLayout>
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

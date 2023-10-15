@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_marginBottom="14dp"
+    android:backgroundTint="@color/white_transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/iv_photo1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/poster" />
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_photo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Rahasia menggunakan AI dalam digital imaging bagi pemula"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:maxLength="100"
+                    android:text="Seminar by boncabe class"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="10sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:maxLength="100"
+                    android:text="29 September 2023 | Online"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSatu"
+                        android:layout_width="52dp"
+                        android:layout_height="20.22dp"
+                        android:background="@drawable/btn_theme"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="IT Tech"
+                        android:textAllCaps="false"
+                        android:textSize="8sp" />
+
+                    <Button
+                        android:id="@+id/btnDua"
+                        android:layout_width="52dp"
+                        android:layout_height="20.22dp"
+                        android:layout_gravity="end|bottom"
+                        android:background="@drawable/btn_theme_3"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Seminar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
