@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--popullar-->
+    <string-array name="data_name">
+        <item>Rahasia Menggunakan AI dalam digital imaging bagi pemula</item>
+        <item>Digital Marketing Specialist CIB-DMS</item>
+        <item>Bundlling Video Learning Copywriting</item>
+        <item>IT Networking "Start yout career with cisco"</item>
+    </string-array>
+
+    <string-array name="data_description">
+        <item>Seminar by boncabe class</item>
+        <item>Bootcamp by vccasia</item>
+        <item>Seminar by digitalskola</item>
+        <item>Seminar by id-Networkers</item>
+    </string-array>
+
+    <string-array name="data_date">
+        <item>29 september 2023 | Online</item>
+        <item>01 Oktober 2023 | Online</item>
+        <item>09 Oktober 2023 | Online</item>
+        <item>28 September 2023 | Online</item>
+    </string-array>
+
+    <string-array name="data_btn">
+        <item>IT Tech</item>
+        <item>Business</item>
+        <item>IT Tech</item>
+        <item>IT Tech</item>
+    </string-array>
+
+    <string-array name="data_btn2">
+        <item>Seminar</item>
+        <item>Bootcamp</item>
+        <item>Kursus</item>
+        <item>Bootcamp</item>
+    </string-array>
+
+    <!--Newest-->
+    <string-array name="data_name2">
+        <item>How to build Succesful Career</item>
+        <item>Seminar nasional Hasanesa</item>
+    </string-array>
+
+    <string-array name="data_description2">
+        <item>Seminar by edofun</item>
+        <item>Seminar by UNISA Yogyakarta</item>
+    </string-array>
+
+    <string-array name="data_date2">
+        <item>30 September 2023 | Online</item>
+        <item>07 October 2023 | Offline</item>
+    </string-array>
+
+    <string-array name="data_btn3">
+        <item>IT Tech</item>
+        <item>Health conference</item>
+    </string-array>
+
+    <string-array name="data_btn4">
+        <item>Seminar</item>
+        <item>Seminar</item>
+    </string-array>
+</resources>
