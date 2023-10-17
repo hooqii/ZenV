@@ -29,6 +29,7 @@
                 android:id="@+id/ivProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="36dp"
                 android:src="@drawable/profile"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +56,7 @@
                 android:layout_height="35dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="48dp"
+                android:layout_marginEnd="25dp"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -171,10 +173,10 @@
                 android:layout_width="360dp"
                 android:layout_height="40dp"
                 android:background="@drawable/glass"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
                 tools:layout_editor_absoluteX="0dp">
 
@@ -188,21 +190,21 @@
                         android:id="@+id/btnPopular"
                         android:layout_width="170dp"
                         android:layout_height="28dp"
+                        android:background="@drawable/btn_theme_2"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Popular"
                         android:textColor="@color/white"
-                        android:textSize="13sp"
-                        android:background="@drawable/btn_theme_2"/>
+                        android:textSize="13sp" />
 
                     <Button
                         android:id="@+id/btnNewest"
                         android:layout_width="170dp"
                         android:layout_height="28dp"
+                        android:background="@color/no_color"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="Newest"
                         android:textColor="@color/dark_blue"
-                        android:textSize="13sp"
-                        android:background="@color/no_color"/>
+                        android:textSize="13sp" />
                 </LinearLayout>
             </FrameLayout>
 
@@ -227,7 +229,7 @@
                         android:layout_width="360dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        tools:listitem="@layout/card_item"/>
+                        tools:listitem="@layout/card_item" />
                 </ScrollView>
 
             </FrameLayout>
@@ -253,7 +255,7 @@
                         android:layout_width="360dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        tools:listitem="@layout/card_item2"/>
+                        tools:listitem="@layout/card_item2" />
                 </ScrollView>
 
             </FrameLayout>
