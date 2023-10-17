@@ -30,7 +30,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
-                android:layout_marginStart="25dp"
                 android:src="@drawable/profile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -56,7 +55,6 @@
                 android:layout_height="35dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="48dp"
-                android:layout_marginEnd="25dp"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.937"
@@ -187,6 +185,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btnPopular"
                         android:layout_width="170dp"
                         android:layout_height="28dp"
                         android:fontFamily="@font/poppins_regular"
@@ -196,6 +195,7 @@
                         android:background="@drawable/btn_theme_2"/>
 
                     <Button
+                        android:id="@+id/btnNewest"
                         android:layout_width="170dp"
                         android:layout_height="28dp"
                         android:fontFamily="@font/poppins_semibold"
@@ -207,9 +207,11 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/frameLayoutCard"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="15dp"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -226,6 +228,32 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         tools:listitem="@layout/card_item"/>
+                </ScrollView>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayoutCard2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/card2"
+                        android:layout_width="360dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        tools:listitem="@layout/card_item2"/>
                 </ScrollView>
 
             </FrameLayout>
