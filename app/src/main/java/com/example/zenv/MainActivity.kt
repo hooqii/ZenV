@@ -38,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         Log.d("ISI DATANYA", dataList.toString())
         adapterMain = RvItem(dataList)
         binding.card1.adapter =adapterMain
+
+        // debuggin mendapatkan index jika card di click
+//        adapterMain.setOnItemClickListener(object : RvItem.OnItemClickListener {
+//            override fun onItemClick(position: Int) {
+//                Log.d("ItemClicked", "Clicked item at index: $position")
+//            }
+//        })
     }
 
     // array

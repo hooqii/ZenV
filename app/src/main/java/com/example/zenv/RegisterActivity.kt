@@ -75,6 +75,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         val etConfirmPassword: EditText = findViewById(R.id.etConfirmPassword)
         val ivShowPassword: ImageView = findViewById(R.id.ivShowPassword)
         val ivShowConfirmPassword: ImageView = findViewById(R.id.ivShowConfirmPassword)
+        // inisialisasi frameLayout
+        frameLayout = findViewById(R.id.frameLayout)
 
         // logika click menekan icon show and hide password
         ivShowPassword.setOnClickListener {
@@ -108,9 +110,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 ivShowConfirmPassword.setImageResource(R.drawable.icon_eye_off)
             }
         }
-
-        // inisialisasi frameLayout
-        frameLayout = findViewById(R.id.frameLayout)
 
         // Logic clicked frameLayout
         frameLayout.setOnClickListener {
@@ -169,7 +168,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 // intent
                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 // variabel pemanggilan button
-                var myLinkText = findViewById<TextView>(R.id.linkLogin)
+                val myLinkText = findViewById<TextView>(R.id.linkLogin)
                 // logika animasi button di click
                 if(!isButtonLinkClicked) {
                     myLinkText.setTextColor(ContextCompat.getColor(this, R.color.purple))

@@ -19,6 +19,9 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
     // Daftar tombol
     private val buttons = ArrayList<Button>()
 
+    // variabel menentukan animasi button
+    private var isButtonLinkClicked = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interest)
@@ -26,17 +29,18 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
         // Inisialisasi tombol
         for (buttonId in buttonIds) {
             val button = findViewById<Button>(buttonId)
-
             // Menambahkan OnClickListener untuk setiap tombol
             button.setOnClickListener { toggleButtonBackground(button) }
-
             // Menyimpan tombol dalam daftar untuk referensi lebih lanjut
             buttons.add(button)
         }
-
-        // Menambahkan OnClickListener untuk tombol kembali
+        // Change form
+        // tombol kembali(logo)
         val backWelcome: TextView = findViewById(R.id.btnBack)
         backWelcome.setOnClickListener(this)
+        // tombol simpan
+        val btnSimpan: Button = findViewById(R.id.btnSimpan)
+        btnSimpan.setOnClickListener(this)
     }
 
     // Fungsi untuk mengganti latar belakang tombol
@@ -61,6 +65,27 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this@InterestActivity, WellcomeActivity::class.java)
                 startActivity(intent)
             }
+            R.id.btnSimpan -> {
+                // Navigasi ke MainActivity
+                val intent = Intent(this@InterestActivity, MainActivity::class.java)
+                val btnSimpan = findViewById<Button>(R.id.btnSimpan)
+                // logika animasi button di click
+                if(!isButtonLinkClicked) {
+                    btnSimpan.setBackgroundResource(R.drawable.btn_theme_3)
+                    isButtonLinkClicked = true
+                }
+                startActivity(intent)
+            }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // declarasi variabel untuk xml
+        val btnSimpan = findViewById<Button>(R.id.btnSimpan)
+        // ubah kembali
+        btnSimpan.setBackgroundResource(R.drawable.btn_theme_2)
+        // jadikan valse
+        isButtonLinkClicked = false
     }
 }
