@@ -1,11 +1,14 @@
 package com.example.zenv
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
@@ -29,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     private var message = "Tekan sekali lagi untuk keluar"
     // variable untuk mengetahui clicked tombol kembali
     private var numberClicked = 1
+    // variable xml
+    private lateinit var mainLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         init()
         setRvAdapter()
+
+        // inisialisasi xml
+        mainLayout = findViewById(R.id.mainLayout)
 
         // Button popular dan newest logic
         val btnPopular = binding.btnPopular
@@ -104,6 +112,20 @@ class MainActivity : AppCompatActivity() {
 
         // menjalankan aksi function callback
         onBackPressedDispatcher.addCallback(this, callback)
+
+        // mendeteksi sentuhan di luar keyboard akan menutup keyboard
+        mainLayout.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                // Cek apakah keyboard sedang terbuka
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                val view = currentFocus
+                if (view != null && imm.isActive) {
+                    imm.hideSoftInputFromWindow(view.windowToken, 0)
+                    view.clearFocus()
+                }
+            }
+            return@setOnTouchListener false
+        }
     }
 
     // LayoutManager

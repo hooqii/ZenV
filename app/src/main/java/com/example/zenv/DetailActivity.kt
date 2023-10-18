@@ -12,8 +12,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), View.OnClickListener {
     // Deklarasi variabel
     private lateinit var jumlahEditText: EditText
     private lateinit var buttonTambah: Button
@@ -23,7 +24,10 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var bookmarkButton: Button
     private lateinit var eventButton: Button
     private lateinit var mainLayout: View
+    private lateinit var btnBack: Button
     private var jumlah = 0
+    // variabel menentukan animasi button
+    private var isButtonLinkClicked = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -37,6 +41,10 @@ class DetailActivity : AppCompatActivity() {
         bookmarkButton = findViewById(R.id.bookmark)
         eventButton = findViewById(R.id.button)
         mainLayout = findViewById(R.id.mainLayout)
+        btnBack = findViewById(R.id.btnBack)
+
+        // Change form
+        btnBack.setOnClickListener(this)
 
         // Atur teks awal pada EditText
         jumlahEditText.setText(jumlah.toString())
@@ -135,5 +143,28 @@ class DetailActivity : AppCompatActivity() {
             val message = "$eventName telah ditambahkan"
             Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.btnBack -> {
+                // intent
+                val intent = Intent(this@DetailActivity, MainActivity::class.java)
+                if(!isButtonLinkClicked) {
+                    btnBack.setBackgroundResource(R.drawable.backarrow_clicked)
+                    isButtonLinkClicked = true
+                }
+                startActivity(intent)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // btnBack
+        btnBack.setBackgroundResource(R.drawable.backarrow)
+
+        // atur variable animasi
+        isButtonLinkClicked = false
     }
 }

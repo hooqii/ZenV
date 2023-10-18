@@ -63,7 +63,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         // Back Welcome
         btnBack.setOnClickListener(this)
 
-        // Mendeteksi sentuhan di luar keyboard saat user click edit text
+        // mendeteksi sentuhan di luar keyboard akan menutup keyboard
         val rootView: View = findViewById(android.R.id.content)
         rootView.setOnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {

@@ -8,6 +8,7 @@
     tools:context=".DetailActivity">
 
     <Button
+        android:id="@+id/btnBack"
         android:layout_width="25.97dp"
         android:layout_height="25.97dp"
         android:layout_marginTop="30dp"
