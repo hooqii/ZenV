@@ -2,8 +2,12 @@ package com.example.zenv
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenv.adapters.RvItem
@@ -64,6 +68,42 @@ class MainActivity : AppCompatActivity() {
             binding.frameLayoutCard.visibility = View.GONE
             binding.frameLayoutCard2.visibility = View.VISIBLE
         }
+
+        // variable dengan lambda
+        val callback = object : OnBackPressedCallback(true) {
+            // variable double clicked
+            private var doubleBackToExitPressedOnce = false
+            // variable untuk Toast
+            private var message = "Tekan sekali lagi untuk keluar"
+            // variable untuk mengetahui clicked tombol kembali
+            private var numberClicked = 1
+            // function menangani tombol kembali
+            override fun handleOnBackPressed() {
+                if (!doubleBackToExitPressedOnce) {
+                    doubleBackToExitPressedOnce = true
+                    // jika hanya menekan sekali akan muncul toast
+                    Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        doubleBackToExitPressedOnce = false
+                    }, 2000)
+                } else {
+                    // Menutup semua aktivitas dan memulai kembali
+                    finishAffinity()
+                }
+                when(numberClicked){
+                    1 -> message = "Tekan sekali lagi untuk keluar"
+                    2 -> message = "😁😁😁Bre bre kalau mau keluar tekan lagi donnnggg!"
+                    3 -> message = "😒Et bocah yaaa, jangan di mainin napa tombolnya!!!😒"
+                }
+                numberClicked++
+                if(numberClicked == 4) {
+                    numberClicked = 1
+                }
+            }
+        }
+
+        // menjalankan aksi function callback
+        onBackPressedDispatcher.addCallback(this, callback)
     }
 
     // LayoutManager
