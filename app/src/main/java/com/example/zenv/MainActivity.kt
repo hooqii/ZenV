@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapterMain: RvItem
     // RecycleView 2
     private lateinit var adapterMain2: RvItem2
+    // variable double clicked
+    private var doubleBackToExitPressedOnce = false
+    // variable untuk Toast
+    private var message = "Tekan sekali lagi untuk keluar"
+    // variable untuk mengetahui clicked tombol kembali
+    private var numberClicked = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,12 +77,6 @@ class MainActivity : AppCompatActivity() {
 
         // variable dengan lambda
         val callback = object : OnBackPressedCallback(true) {
-            // variable double clicked
-            private var doubleBackToExitPressedOnce = false
-            // variable untuk Toast
-            private var message = "Tekan sekali lagi untuk keluar"
-            // variable untuk mengetahui clicked tombol kembali
-            private var numberClicked = 1
             // function menangani tombol kembali
             override fun handleOnBackPressed() {
                 if (!doubleBackToExitPressedOnce) {

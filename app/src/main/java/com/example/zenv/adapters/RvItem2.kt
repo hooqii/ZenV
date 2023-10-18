@@ -1,10 +1,8 @@
 package com.example.zenv.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.zenv.DetailActivity
 import com.example.zenv.databinding.CardItem2Binding
 import com.example.zenv.model.ItemModel2
 

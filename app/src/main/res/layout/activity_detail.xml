@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,6 +100,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
+                        android:id="@+id/bookmark"
                         android:layout_width="20dp"
                         android:layout_height="25dp"
                         android:background="@drawable/save_icon"
@@ -208,7 +210,7 @@
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <Button
-                        android:id="@+id/imageView4"
+                        android:id="@+id/shared"
                         android:layout_width="23dp"
                         android:layout_height="23dp"
                         android:background="@drawable/share_icon"
@@ -216,13 +218,14 @@
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <Button
+                        android:id="@+id/instagramShared"
                         android:layout_width="23dp"
                         android:layout_height="23dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/instagram_logo"
-
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView4" />
+                        app:layout_constraintEnd_toStartOf="@+id/shared" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
 
@@ -385,7 +388,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                     <Button
-                        android:id="@+id/button14"
+                        android:id="@+id/buttonTambah"
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:layout_marginEnd="10dp"
@@ -394,8 +397,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView13"
+                    <EditText
+                        android:id="@+id/jumlah"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
@@ -403,16 +406,17 @@
                         android:text="0"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/button14" />
+                        app:layout_constraintEnd_toStartOf="@+id/buttonTambah" />
 
                     <Button
+                        android:id="@+id/buttonKurang"
                         android:layout_width="18dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_height="18dp"
                         android:background="@drawable/decrement"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView13" />
+                        app:layout_constraintEnd_toStartOf="@+id/jumlah" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
